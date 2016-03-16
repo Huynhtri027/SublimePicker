@@ -19,6 +19,7 @@ package com.appeaser.sublimepicker;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.DialogFragment;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -30,6 +31,7 @@ import com.appeaser.sublimepickerlibrary.helpers.SublimeOptions;
 import com.appeaser.sublimepickerlibrary.recurrencepicker.SublimeRecurrencePicker;
 
 import java.text.DateFormat;
+import java.util.Calendar;
 import java.util.Locale;
 import java.util.TimeZone;
 
@@ -71,6 +73,11 @@ public class SublimePickerFragment extends DialogFragment {
         }
 // You can also override 'formatDate(Date)' & 'formatTime(Date)'
         // to supply custom formatters.
+
+
+        @Override
+        public void onDateChanged(SublimePicker sublimeMaterialPicker, SelectedDate selectedDate, int hourOfDay, int minute, SublimeRecurrencePicker.RecurrenceOption recurrenceOption, String recurrenceRule) {
+        }
     };
 
     public SublimePickerFragment() {

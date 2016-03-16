@@ -132,7 +132,7 @@ public class SublimeDatePicker extends FrameLayout {
 
     @TargetApi(Build.VERSION_CODES.LOLLIPOP)
     public SublimeDatePicker(Context context, AttributeSet attrs,
-                                     int defStyleAttr, int defStyleRes) {
+                             int defStyleAttr, int defStyleRes) {
         super(context, attrs, defStyleAttr, defStyleRes);
         initializeLayout(attrs, defStyleAttr, defStyleRes);
     }
@@ -323,7 +323,7 @@ public class SublimeDatePicker extends FrameLayout {
                 mCurrentDate = new SelectedDate(day);
             }
 
-            onDateChanged(true, false, goToPosition);
+            onDateChanged(true, true, goToPosition);
         }
 
         @Override
@@ -515,10 +515,10 @@ public class SublimeDatePicker extends FrameLayout {
      * Initialize the state. If the provided values designate an inconsistent
      * date the values are normalized before updating the spinners.
      *
-     * @param selectedDate  The initial date or date range.
-     * @param canPickRange  Enable/disable date range selection
-     * @param callback      How user is notified date is changed by
-     *                      user, can be null.
+     * @param selectedDate The initial date or date range.
+     * @param canPickRange Enable/disable date range selection
+     * @param callback     How user is notified date is changed by
+     *                     user, can be null.
      */
     //public void init(int year, int monthOfYear, int dayOfMonth, boolean canPickRange,
     public void init(SelectedDate selectedDate, boolean canPickRange,
@@ -555,9 +555,8 @@ public class SublimeDatePicker extends FrameLayout {
     private void onDateChanged(boolean fromUser, boolean callbackToClient, boolean goToPosition) {
         final int year = mCurrentDate.getStartDate().get(Calendar.YEAR);
 
-        if (callbackToClient && mDateChangedListener != null) {
+        if (callbackToClient && mDateChangedListener != null)
             mDateChangedListener.onDateChanged(this, mCurrentDate);
-        }
 
         updateHeaderViews();
 

@@ -107,6 +107,8 @@ public class SublimePicker extends FrameLayout
     // null/invalid(zero-length, empty) string
     private DateFormat mDefaultDateFormatter, mDefaultTimeFormatter;
 
+    private boolean mLock = false;
+
     // Listener for recurrence picker
     private final SublimeRecurrencePicker.OnRepeatOptionSetListener mRepeatOptionSetListener = new SublimeRecurrencePicker.OnRepeatOptionSetListener() {
         @Override
@@ -633,7 +635,12 @@ public class SublimePicker extends FrameLayout
                 //selectedDate.getStartDate().get(Calendar.MONTH),
                 //selectedDate.getStartDate().get(Calendar.DAY_OF_MONTH),
                 //mOptions.canPickDateRange(), this);
-        mDatePicker.init(selectedDate, mOptions.canPickDateRange(), this);
+        if(!mLock){
+            mLock = true;
+            mDatePicker.init(selectedDate, mOptions.canPickDateRange(), this);
+        }
+        if(mListener != null)
+            mListener.onDateChanged(SublimePicker.this, selectedDate, 0, 0, null, null);
     }
 
     @Override

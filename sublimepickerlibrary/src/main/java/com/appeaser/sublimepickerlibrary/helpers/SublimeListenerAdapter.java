@@ -45,6 +45,12 @@ public abstract class SublimeListenerAdapter {
     // Cancel button or icon clicked
     public abstract void onCancelled();
 
+    public abstract void onDateChanged(SublimePicker sublimeMaterialPicker,
+                                        SelectedDate selectedDate,
+                                        int hourOfDay, int minute,
+                                        SublimeRecurrencePicker.RecurrenceOption recurrenceOption,
+                                        String recurrenceRule);
+
     /**
      * @param selectedDate The date(or range) that is selected.
      * @return Formatted date to display on `Switcher` button
@@ -62,4 +68,6 @@ public abstract class SublimeListenerAdapter {
     public CharSequence formatTime(Date selectedTime) {
         return null;
     }
+
+
 }
