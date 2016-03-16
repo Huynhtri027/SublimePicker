@@ -39,7 +39,6 @@ import android.widget.Toast;
 
 import com.appeaser.sublimepickerlibrary.datepicker.SelectedDate;
 import com.appeaser.sublimepickerlibrary.helpers.SublimeOptions;
-import com.appeaser.sublimepickerlibrary.recurrencepicker.SublimeRecurrencePicker;
 
 import java.text.DateFormat;
 import java.util.Calendar;
@@ -81,14 +80,11 @@ public class Sampler extends AppCompatActivity {
         @Override
         public void onDateTimeRecurrenceSet(SelectedDate selectedDate,
                                             int hourOfDay, int minute,
-                                            SublimeRecurrencePicker.RecurrenceOption recurrenceOption,
                                             String recurrenceRule) {
 
             mSelectedDate = selectedDate;
             mHour = hourOfDay;
             mMinute = minute;
-            mRecurrenceOption = recurrenceOption != null ?
-                    recurrenceOption.name() : "n/a";
             mRecurrenceRule = recurrenceRule != null ?
                     recurrenceRule : "n/a";
 
