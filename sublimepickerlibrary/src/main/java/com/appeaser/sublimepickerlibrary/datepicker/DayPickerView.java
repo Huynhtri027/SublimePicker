@@ -178,6 +178,7 @@ class DayPickerView extends ViewGroup {
         };
 
         mViewPager = (DayPickerViewPager) findViewById(viewPagerIdToUse);
+        setClipChildren(false);
         mViewPager.setAdapter(mAdapter);
         mViewPager.addOnPageChangeListener(onPageChangedListener);
 

@@ -23,24 +23,8 @@ import com.appeaser.sublimepickerlibrary.recurrencepicker.SublimeRecurrencePicke
 import java.util.Date;
 
 public abstract class SublimeListenerAdapter {
-    /**
-     * @param sublimeMaterialPicker SublimeMaterialPicker view
-     * @param selectedDate          The date that was set.
-     * @param hourOfDay             The hour of day that was set.
-     * @param minute                The minute that was set.
-     * @param recurrenceOption      One of the options defined in
-     *                              SublimeRecurrencePicker.RecurrenceOption.
-     *                              'recurrenceRule' will only be passed if
-     *                              'recurrenceOption' is 'CUSTOM'.
-     * @param recurrenceRule        The recurrence rule that was set. This will
-     *                              be 'null' if 'recurrenceOption' is anything
-     *                              other than 'CUSTOM'.
-     */
-    public abstract void onDateTimeRecurrenceSet(SublimePicker sublimeMaterialPicker,
-                                                 SelectedDate selectedDate,
-                                                 int hourOfDay, int minute,
-                                                 SublimeRecurrencePicker.RecurrenceOption recurrenceOption,
-                                                 String recurrenceRule);
+
+    public abstract void onDateRangeSelected(boolean isFirstPick, SelectedDate selectedDate);
 
     // Cancel button or icon clicked
     public abstract void onCancelled();
@@ -62,4 +46,6 @@ public abstract class SublimeListenerAdapter {
     public CharSequence formatTime(Date selectedTime) {
         return null;
     }
+
+
 }

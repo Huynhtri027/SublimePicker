@@ -47,9 +47,6 @@ public class ButtonHandler implements View.OnClickListener {
 
         if (mIsInLandscapeMode) {
             initializeForLandscape(sublimePicker);
-        } else {
-            // Takes care of initialization
-            mPortraitButtonHandler = (ButtonLayout) sublimePicker.findViewById(R.id.button_layout);
         }
     }
 

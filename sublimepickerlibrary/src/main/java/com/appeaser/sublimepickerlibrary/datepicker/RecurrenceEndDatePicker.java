@@ -213,7 +213,6 @@ public class RecurrenceEndDatePicker extends FrameLayout {
             if (Config.DEBUG) {
                 Log.i(TAG, "onDateRangeSelectionUpdated: " + selectedDate.toString());
             }
-
             mCurrentDate = new SelectedDate(selectedDate);
             onDateChanged(false, false);
         }
