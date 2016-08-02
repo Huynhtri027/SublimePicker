@@ -166,6 +166,14 @@ public class SublimePicker extends FrameLayout
         mDatePicker.setCheckoutDay(day);
     }
 
+    public void scrollToFirst(){
+        mDatePicker.scrollToFirst();
+    }
+
+    public void scrollToNext(){
+        mDatePicker.scrollToNext();
+    }
+
     // Called before 'RecurrencePicker' is shown
     private void updateHiddenPicker() {
         if (mDatePickerEnabled && mTimePickerEnabled) {

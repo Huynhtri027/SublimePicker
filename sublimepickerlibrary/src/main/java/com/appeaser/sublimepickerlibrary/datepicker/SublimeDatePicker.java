@@ -341,6 +341,14 @@ public class SublimeDatePicker extends FrameLayout {
         mProxyDaySelectionEventListener.onDaySelected(mDayPickerView, day);
     }
 
+    public void scrollToFirst(){
+        mDayPickerView.scrollToFirst();
+    }
+
+    public void scrollToNext(){
+        mDayPickerView.scrollToNext();
+    }
+
     private void onCurrentDateChanged(boolean announce) {
         final String yearStrStart = mYearFormat.format(mCurrentDate.getStartDate().getTime());
         final String monthDayStrStart = mMonthDayFormat.format(mCurrentDate.getStartDate().getTime());

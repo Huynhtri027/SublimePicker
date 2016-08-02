@@ -225,6 +225,14 @@ class DayPickerView extends ViewGroup {
         });
     }
 
+    public void scrollToFirst(){
+        mViewPager.setCurrentItem(0);
+    }
+
+    public void scrollToNext(){
+        mViewPager.setCurrentItem(mViewPager.getCurrentItem() + 1);
+    }
+
     public void setCanPickRange(boolean canPickRange) {
         mViewPager.setCanPickRange(canPickRange);
     }
