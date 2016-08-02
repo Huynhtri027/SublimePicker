@@ -246,6 +246,10 @@ public class SublimeDatePicker extends FrameLayout {
 
             mCurrentDate = new SelectedDate(day);
 
+            if(!isFirstPick && !day.getTime().after(firstPick.getTime())){
+                isFirstPick = true;
+            }
+
             if (isFirstPick) {
                 firstPick = day;
                 secondPick = day;

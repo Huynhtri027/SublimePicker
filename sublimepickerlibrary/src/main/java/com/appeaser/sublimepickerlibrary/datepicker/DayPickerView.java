@@ -178,7 +178,6 @@ class DayPickerView extends ViewGroup {
         };
 
         mViewPager = (DayPickerViewPager) findViewById(viewPagerIdToUse);
-        setClipChildren(false);
         mViewPager.setAdapter(mAdapter);
         mViewPager.addOnPageChangeListener(onPageChangedListener);
 
@@ -244,7 +243,7 @@ class DayPickerView extends ViewGroup {
 
         final int measuredWidthAndState = viewPager.getMeasuredWidthAndState();
         final int measuredHeightAndState = viewPager.getMeasuredHeightAndState();
-        setMeasuredDimension(measuredWidthAndState, measuredHeightAndState);
+        setMeasuredDimension(measuredWidthAndState, heightMeasureSpec);
 
         final int pagerWidth = viewPager.getMeasuredWidth();
         final int pagerHeight = viewPager.getMeasuredHeight();
