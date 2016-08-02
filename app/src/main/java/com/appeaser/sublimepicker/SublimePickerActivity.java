@@ -29,6 +29,8 @@ import com.appeaser.sublimepickerlibrary.SublimePicker;
 import com.appeaser.sublimepickerlibrary.datepicker.SelectedDate;
 import com.appeaser.sublimepickerlibrary.helpers.SublimeListenerAdapter;
 
+import java.util.Calendar;
+
 public class SublimePickerActivity extends AppCompatActivity {
     SublimePicker mSublimePicker;
 
@@ -50,6 +52,11 @@ public class SublimePickerActivity extends AppCompatActivity {
         setContentView(R.layout.activity_test);
         mSublimePicker = (SublimePicker) findViewById(R.id.picker);
         mSublimePicker.initializePicker(null, mListener);
+
+        mSublimePicker.setCheckinDate(Calendar.getInstance());
+        Calendar calendar = Calendar.getInstance();
+        calendar.add(Calendar.DATE, 1);
+        mSublimePicker.setCheckoutDate(calendar);
     }
 
 

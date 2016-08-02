@@ -331,6 +331,16 @@ public class SublimeDatePicker extends FrameLayout {
         mYearFormat = new SimpleDateFormat("y", locale);
     }
 
+    public void setCheckinDay(Calendar day){
+        isFirstPick = true;
+        mProxyDaySelectionEventListener.onDaySelected(mDayPickerView, day);
+    }
+
+    public void setCheckoutDay(Calendar day){
+        isFirstPick = false;
+        mProxyDaySelectionEventListener.onDaySelected(mDayPickerView, day);
+    }
+
     private void onCurrentDateChanged(boolean announce) {
         final String yearStrStart = mYearFormat.format(mCurrentDate.getStartDate().getTime());
         final String monthDayStrStart = mMonthDayFormat.format(mCurrentDate.getStartDate().getTime());
