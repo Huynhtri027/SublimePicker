@@ -22,30 +22,11 @@ import com.appeaser.sublimepickerlibrary.recurrencepicker.SublimeRecurrencePicke
 
 import java.util.Date;
 
-public abstract class SublimeListenerAdapter {
+public interface SublimeListenerAdapter {
 
-    public abstract void onDateRangeSelected(boolean isFirstPick, SelectedDate selectedDate);
+    public void onDateRangeSelected(boolean isFirstPick, SelectedDate selectedDate);
 
     // Cancel button or icon clicked
-    public abstract void onCancelled();
-
-    /**
-     * @param selectedDate The date(or range) that is selected.
-     * @return Formatted date to display on `Switcher` button
-     */
-    @SuppressWarnings("UnusedParameters")
-    public CharSequence formatDate(SelectedDate selectedDate) {
-        return null;
-    }
-
-    /**
-     * @param selectedTime The time of day that was set.
-     * @return Formatted time to display on `Switcher` button
-     */
-    @SuppressWarnings("UnusedParameters")
-    public CharSequence formatTime(Date selectedTime) {
-        return null;
-    }
-
+    public void onCancelled();
 
 }
