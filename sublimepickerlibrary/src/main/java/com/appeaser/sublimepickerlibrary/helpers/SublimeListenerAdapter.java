@@ -24,9 +24,6 @@ import java.util.Date;
 
 public interface SublimeListenerAdapter {
 
-    public void onDateRangeSelected(boolean isFirstPick, SelectedDate selectedDate);
-
-    // Cancel button or icon clicked
-    public void onCancelled();
+    void onDateRangeSelected(boolean isFirstPick, SelectedDate selectedDate);
 
 }
