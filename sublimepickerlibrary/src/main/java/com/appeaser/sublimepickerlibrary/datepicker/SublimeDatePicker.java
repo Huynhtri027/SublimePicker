@@ -143,6 +143,7 @@ public class SublimeDatePicker extends FrameLayout {
         mTempDate = Calendar.getInstance(mCurrentLocale);
         mMinDate = Calendar.getInstance(mCurrentLocale);
         mMaxDate = Calendar.getInstance(mCurrentLocale);
+        firstPick = Calendar.getInstance(mCurrentLocale);
 
         mMinDate.set(DEFAULT_START_YEAR, Calendar.JANUARY, 1);
         mMaxDate.set(DEFAULT_END_YEAR, Calendar.DECEMBER, 31);
@@ -347,6 +348,14 @@ public class SublimeDatePicker extends FrameLayout {
 
     public void scrollToNext(){
         mDayPickerView.scrollToNext();
+    }
+
+    public int getCurrentItem(){
+        return mDayPickerView.getCurrentItem();
+    }
+
+    public void setCurrentItem(int index){
+        mDayPickerView.setCurrentItem(index);
     }
 
     private void onCurrentDateChanged(boolean announce) {

@@ -17,25 +17,39 @@
 package com.appeaser.sublimepicker;
 
 import android.os.Bundle;
-import android.os.Handler;
 import android.support.annotation.Nullable;
-import android.support.v4.app.DialogFragment;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
+import android.view.ViewGroup;
+import android.widget.RelativeLayout;
 
 import com.appeaser.sublimepickerlibrary.SublimePicker;
 import com.appeaser.sublimepickerlibrary.datepicker.SelectedDate;
 import com.appeaser.sublimepickerlibrary.helpers.SublimeListenerAdapter;
+import com.appeaser.sublimepickerlibrary.helpers.SublimeOptions;
 
 import java.util.Calendar;
+import java.util.concurrent.TimeUnit;
 
 public class SublimePickerActivity extends AppCompatActivity {
     SublimePicker mSublimePicker;
+    int currentFirstIndex;
 
     SublimeListenerAdapter mListener = new SublimeListenerAdapter() {
         @Override
         public void onDateRangeSelected(boolean isFirstPick, SelectedDate selectedDate) {
-            Log.v("TEST", isFirstPick + " ");
+            if (!isFirstPick) {
+                long millisDiff = selectedDate.getSecondDate().getTimeInMillis() - selectedDate.getFirstDate().getTimeInMillis();
+                int dayDiff = (int) TimeUnit.DAYS.convert(millisDiff, TimeUnit.MILLISECONDS);
+                if(dayDiff <= 10){
+
+                }
+                else{
+                    mSublimePicker.setCurrentItem(currentFirstIndex);
+                }
+            } else {
+                currentFirstIndex = mSublimePicker.getCurrentItem();
+            }
         }
     };
 
@@ -43,7 +57,8 @@ public class SublimePickerActivity extends AppCompatActivity {
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_test);
-        mSublimePicker = (SublimePicker) findViewById(R.id.picker);
+
+        mSublimePicker = (SublimePicker) findViewById(R.id.sublime_picker);
         mSublimePicker.initializePicker(null, mListener);
 
         mSublimePicker.setCheckinDate(Calendar.getInstance());
@@ -51,6 +66,4 @@ public class SublimePickerActivity extends AppCompatActivity {
         calendar.add(Calendar.DATE, 1);
         mSublimePicker.setCheckoutDate(calendar);
     }
-
-
 }

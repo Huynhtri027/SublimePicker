@@ -174,6 +174,15 @@ public class SublimePicker extends FrameLayout
         mDatePicker.scrollToNext();
     }
 
+    public int getCurrentItem(){
+        return mDatePicker.getCurrentItem();
+    }
+
+    public void setCurrentItem(int index){
+        mDatePicker.setCurrentItem(index);
+    }
+
+
     // Called before 'RecurrencePicker' is shown
     private void updateHiddenPicker() {
         if (mDatePickerEnabled && mTimePickerEnabled) {

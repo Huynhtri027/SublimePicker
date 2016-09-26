@@ -56,6 +56,8 @@ class DayPickerView extends ViewGroup {
 
     private final DayPickerPagerAdapter mAdapter;
 
+    private int selectedDayViewpagerIndex = 0;
+
     /**
      * Temporary calendar used for date calculations.
      */
@@ -227,6 +229,14 @@ class DayPickerView extends ViewGroup {
 
     public void scrollToFirst(){
         mViewPager.setCurrentItem(0);
+    }
+
+    public int getCurrentItem(){
+        return mViewPager.getCurrentItem();
+    }
+
+    public void setCurrentItem(int index){
+        mViewPager.setCurrentItem(index, true);
     }
 
     public void scrollToNext(){
